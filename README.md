@@ -23,7 +23,7 @@ Ya viene configurado:
 ## Puesta en marcha (al inicio de cada clase)
 
 ```bash
-git clone <https://github.com/npaniagua26/isw621-frontend>
+git clone https://github.com/npaniagua26/isw621-frontend
 cd isw621-frontend
 npm install
 ```
@@ -53,22 +53,6 @@ npm run dev
 Abrir http://localhost:5173. Si aparece la pantalla **"Proyecto base listo"** con estilos, todo quedó bien.
 
 > Cada vez que se modifica `.env`, hay que detener el servidor (`Ctrl + C`) y volver a ejecutar `npm run dev`.
-
-## Continuar desde una clase anterior
-
-Al final de cada clase se publica una etiqueta con el código terminado. Para continuar desde ese punto:
-
-```bash
-git fetch --tags
-git checkout clase-10-1
-```
-
-| Etiqueta     | Contenido                                       |
-|--------------|-------------------------------------------------|
-| `base`       | Proyecto base (este estado)                     |
-| `clase-10-1` | Servicios, Login y listado de Producto          |
-| `clase-10-2` | CRUD completo de Producto                       |
-| `clase-11-1` | Autenticación, autorización y módulo de Usuarios |
 
 ## Scripts
 
@@ -132,8 +116,8 @@ import { getErrorMessage, getFieldError } from "@/utils/apiError"
 try {
   await productoService.create(producto)
 } catch (error) {
-  toast.error(getErrorMessage(error))         // mensaje general
-  const errorNombre = getFieldError(error, "nombre") // error de validación de un campo
+  toast.error(getErrorMessage(error))                 // mensaje general
+  const errorNombre = getFieldError(error, "nombre")  // error de validación de un campo
 }
 ```
 
@@ -156,7 +140,7 @@ npx shadcn@latest add tabs textarea
 | "No se pudo conectar con el servidor" | API apagada, puerto incorrecto o certificado HTTPS no confiable | Ejecutar la API, revisar el puerto y ejecutar `dotnet dev-certs https --trust` |
 | Error de **CORS** en la consola | La API no permite el origen `http://localhost:5173` | Agregar ese origen a la política CORS del backend |
 | "Port 5173 is already in use" | Hay otro `npm run dev` abierto | Cerrar la otra terminal |
-| Pantalla sin estilos | Se modificó `src/index.css` | Restaurarlo con `git checkout src/index.css` |
+| Pantalla sin estilos | Se modificó `src/index.css` | Restaurar el archivo original del repositorio |
 | `@/` aparece en rojo en VS Code | Falta `jsconfig.json` o hay que recargar VS Code | Verificar el archivo y recargar la ventana |
 
 ---
